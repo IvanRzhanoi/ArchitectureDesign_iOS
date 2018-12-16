@@ -35,6 +35,8 @@
 		2282CEAC21BC328100DE3999 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CEAB21BC328100DE3999 /* NetworkLayer.swift */; };
 		2282CEAE21BC32C800DE3999 /* ModelLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CEAD21BC32C800DE3999 /* ModelLayer.swift */; };
 		2282CEB021BC38CC00DE3999 /* SpyTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CEAF21BC38CC00DE3999 /* SpyTranslator.swift */; };
+		22D1ED2E21C672B4002C898D /* SwinjectStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D1ED2C21C672B4002C898D /* SwinjectStoryboard+Extensions.swift */; };
+		22D1ED2F21C672B4002C898D /* DependencyRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D1ED2D21C672B4002C898D /* DependencyRegistry.swift */; };
 		27D89A5AED51AACE163BC800 /* Pods_KnownSpys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD66DF8A273EBAA681C0C56 /* Pods_KnownSpys.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		2282CEAB21BC328100DE3999 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		2282CEAD21BC32C800DE3999 /* ModelLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLayer.swift; sourceTree = "<group>"; };
 		2282CEAF21BC38CC00DE3999 /* SpyTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyTranslator.swift; sourceTree = "<group>"; };
+		22D1ED2C21C672B4002C898D /* SwinjectStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		22D1ED2D21C672B4002C898D /* DependencyRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyRegistry.swift; sourceTree = "<group>"; };
 		6FD66DF8A273EBAA681C0C56 /* Pods_KnownSpys.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnownSpys.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93008DB5112BB6ECABC1A530 /* Pods-KnownSpys.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnownSpys.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnownSpys/Pods-KnownSpys.debug.xcconfig"; sourceTree = "<group>"; };
 		C195FFDF15DCC517723B1A3C /* Pods-KnownSpys.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnownSpys.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnownSpys/Pods-KnownSpys.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 		0993B3811EA53470005C9B6F /* KnownSpys */ = {
 			isa = PBXGroup;
 			children = (
+				22D1ED2B21C672B4002C898D /* Dependencies */,
 				0993B3B21EA53F6A005C9B6F /* ModelLayer */,
 				0993B3AC1EA53D98005C9B6F /* UI */,
 				0993B3AB1EA53D8C005C9B6F /* Supporting Classes */,
@@ -250,6 +255,16 @@
 				2282CEAF21BC38CC00DE3999 /* SpyTranslator.swift */,
 			);
 			name = Translation;
+			sourceTree = "<group>";
+		};
+		22D1ED2B21C672B4002C898D /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				22D1ED2D21C672B4002C898D /* DependencyRegistry.swift */,
+				22D1ED2C21C672B4002C898D /* SwinjectStoryboard+Extensions.swift */,
+			);
+			name = Dependencies;
+			path = ../../../Ch02/02_03__Start/KnownSpys/Dependencies;
 			sourceTree = "<group>";
 		};
 		7F5EDADF8906101E9B116D2C /* Frameworks */ = {
@@ -407,6 +422,8 @@
 				2282CEAC21BC328100DE3999 /* NetworkLayer.swift in Sources */,
 				2282CEA121BC2E8600DE3999 /* DetailPresenter.swift in Sources */,
 				2282CEB021BC38CC00DE3999 /* SpyTranslator.swift in Sources */,
+				22D1ED2F21C672B4002C898D /* DependencyRegistry.swift in Sources */,
+				22D1ED2E21C672B4002C898D /* SwinjectStoryboard+Extensions.swift in Sources */,
 				2282CEAE21BC32C800DE3999 /* ModelLayer.swift in Sources */,
 				0993B3B51EA55130005C9B6F /* SpyCell.swift in Sources */,
 				0993B3A21EA53D3D005C9B6F /* SecretDetailsViewController.swift in Sources */,
