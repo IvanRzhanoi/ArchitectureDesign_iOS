@@ -35,6 +35,7 @@
 		2282CEAC21BC328100DE3999 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CEAB21BC328100DE3999 /* NetworkLayer.swift */; };
 		2282CEAE21BC32C800DE3999 /* ModelLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CEAD21BC32C800DE3999 /* ModelLayer.swift */; };
 		2282CEB021BC38CC00DE3999 /* SpyTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CEAF21BC38CC00DE3999 /* SpyTranslator.swift */; };
+		229219D521C6BCAE00741794 /* RootNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229219D421C6BCAE00741794 /* RootNavigationCoordinator.swift */; };
 		22D1ED2E21C672B4002C898D /* SwinjectStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D1ED2C21C672B4002C898D /* SwinjectStoryboard+Extensions.swift */; };
 		22D1ED2F21C672B4002C898D /* DependencyRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D1ED2D21C672B4002C898D /* DependencyRegistry.swift */; };
 		27D89A5AED51AACE163BC800 /* Pods_KnownSpys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD66DF8A273EBAA681C0C56 /* Pods_KnownSpys.framework */; };
@@ -71,6 +72,7 @@
 		2282CEAB21BC328100DE3999 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		2282CEAD21BC32C800DE3999 /* ModelLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLayer.swift; sourceTree = "<group>"; };
 		2282CEAF21BC38CC00DE3999 /* SpyTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyTranslator.swift; sourceTree = "<group>"; };
+		229219D421C6BCAE00741794 /* RootNavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootNavigationCoordinator.swift; path = Coordination/RootNavigationCoordinator.swift; sourceTree = "<group>"; };
 		22D1ED2C21C672B4002C898D /* SwinjectStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		22D1ED2D21C672B4002C898D /* DependencyRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyRegistry.swift; sourceTree = "<group>"; };
 		6FD66DF8A273EBAA681C0C56 /* Pods_KnownSpys.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnownSpys.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 		0993B3811EA53470005C9B6F /* KnownSpys */ = {
 			isa = PBXGroup;
 			children = (
+				229219D321C6BC9700741794 /* NavigationCoordinators */,
 				22D1ED2B21C672B4002C898D /* Dependencies */,
 				0993B3B21EA53F6A005C9B6F /* ModelLayer */,
 				0993B3AC1EA53D98005C9B6F /* UI */,
@@ -255,6 +258,14 @@
 				2282CEAF21BC38CC00DE3999 /* SpyTranslator.swift */,
 			);
 			name = Translation;
+			sourceTree = "<group>";
+		};
+		229219D321C6BC9700741794 /* NavigationCoordinators */ = {
+			isa = PBXGroup;
+			children = (
+				229219D421C6BCAE00741794 /* RootNavigationCoordinator.swift */,
+			);
+			name = NavigationCoordinators;
 			sourceTree = "<group>";
 		};
 		22D1ED2B21C672B4002C898D /* Dependencies */ = {
@@ -427,6 +438,7 @@
 				2282CEAE21BC32C800DE3999 /* ModelLayer.swift in Sources */,
 				0993B3B51EA55130005C9B6F /* SpyCell.swift in Sources */,
 				0993B3A21EA53D3D005C9B6F /* SecretDetailsViewController.swift in Sources */,
+				229219D521C6BCAE00741794 /* RootNavigationCoordinator.swift in Sources */,
 				2282CEAA21BC326200DE3999 /* DataLayer.swift in Sources */,
 				2282CEA821BC323B00DE3999 /* TranslationLayer.swift in Sources */,
 				2282CEA521BC31D200DE3999 /* SpyCellPresenter.swift in Sources */,
