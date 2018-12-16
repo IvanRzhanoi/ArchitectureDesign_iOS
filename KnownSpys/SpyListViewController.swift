@@ -3,9 +3,12 @@ import Toaster
 import Alamofire
 import CoreData
 import Outlaw
+import RxSwift
+import RxCocoa
+import RxDataSources
 
 
-class SpyListViewController: UIViewController, UITableViewDataSource ,UITableViewDelegate {
+class SpyListViewController: UIViewController,UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
     
@@ -13,6 +16,9 @@ class SpyListViewController: UIViewController, UITableViewDataSource ,UITableVie
     
     fileprivate var presenter: SpyListPresenter!
     fileprivate var spyCellMaker: DependencyRegistry.SpyCellMaker!
+    fileprivate var bag = DisposeBag()
+    
+    fileprivate var dataSource = RxTableViewSectionedReloadDataSource<SpySection>()
     
     func configure(with presenter: SpyListPresenter,
                    navigationCoordinator: NavigationCoordinator,
@@ -26,40 +32,52 @@ class SpyListViewController: UIViewController, UITableViewDataSource ,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate   = self
-        
         SpyCell.register(with: tableView)
         
         presenter.loadData { [weak self] source in
             self?.newDataReceived(from: source)
         }
+        
+        initDataSource()
+        initTableView()
     }
     
     func newDataReceived(from source: Source) {
         Toast(text: "New Data from \(source)").show()
         tableView.reloadData()
     }
+    
+    @IBAction func updateData(_ sender: Any) {
+        presenter.makeSomeDataChange()
+    }
 }
 
-
-//MARK: - UITableViewDataSource
+// MARK: - Reactive Process
 extension SpyListViewController {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let spy = presenter.data[indexPath.row]
-
-        let cell = spyCellMaker(tableView, indexPath, spy)
+    func initDataSource() {
+        dataSource.configureCell = { _, tabelView, indexPath, spy in
+            let cell = self.spyCellMaker(tabelView, indexPath, spy)
+            return cell
+        }
         
-        return cell
+        dataSource.titleForHeaderInSection = { ds, index in
+            return ds.sectionModels[index].header
+        }
+    }
+    
+    func initTableView() {
+        presenter.sections.asObservable()
+        .bind(to: tableView.rx.items(dataSource: dataSource))
+        .disposed(by: bag)
+        
+        tableView.rx.itemSelected.map { indexPath in
+            return (indexPath, self.dataSource[indexPath])
+            }.subscribe(onNext: { indexPath, spy in
+                self.next(with: spy)
+            }).disposed(by: bag)
+        
+        tableView.rx.setDelegate(self)
+        .disposed(by: bag)
     }
 }
 
@@ -67,11 +85,6 @@ extension SpyListViewController {
 extension SpyListViewController {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 126
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let spy = presenter.data[indexPath.row]
-        next(with: spy)
     }
     
     func next(with spy: SpyDTO) {
