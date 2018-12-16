@@ -319,7 +319,7 @@
 				TargetAttributes = {
 					0993B37E1EA53470005C9B6F = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 6A4W4G6ZCH;
+						DevelopmentTeam = 9D6FT2JC7N;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -568,7 +568,7 @@
 			baseConfigurationReference = 93008DB5112BB6ECABC1A530 /* Pods-KnownSpys.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6A4W4G6ZCH;
+				DEVELOPMENT_TEAM = 9D6FT2JC7N;
 				INFOPLIST_FILE = KnownSpys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonbott.KnownSpys;
@@ -582,7 +582,7 @@
 			baseConfigurationReference = C195FFDF15DCC517723B1A3C /* Pods-KnownSpys.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6A4W4G6ZCH;
+				DEVELOPMENT_TEAM = 9D6FT2JC7N;
 				INFOPLIST_FILE = KnownSpys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonbott.KnownSpys;

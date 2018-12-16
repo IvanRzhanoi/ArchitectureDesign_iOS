@@ -10,14 +10,23 @@ class SpyListViewController: UIViewController, UITableViewDataSource ,UITableVie
     @IBOutlet var tableView: UITableView!
     
     fileprivate var presenter: SpyListPresenter!
+    fileprivate var detailViewControllerMaker: DependencyRegistry.DetailViewControllerMaker!
+    fileprivate var spyCellMaker: DependencyRegistry.SpyCellMaker!
+    
+    func configure(with presenter: SpyListPresenter,
+                   detailViewControllerMaker: @escaping DependencyRegistry.DetailViewControllerMaker,
+                   spyCellMaker: @escaping DependencyRegistry.SpyCellMaker)
+    {
+        self.presenter = presenter
+        self.detailViewControllerMaker = detailViewControllerMaker
+        self.spyCellMaker = spyCellMaker
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate   = self
-        
-        presenter = SpyListPresenter()
         
         SpyCell.register(with: tableView)
         
@@ -47,7 +56,7 @@ extension SpyListViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let spy = presenter.data[indexPath.row]
 
-        let cell = SpyCell.dequeue(from: tableView, for: indexPath, with: spy)
+        let cell = spyCellMaker(tableView, indexPath, spy)
         
         return cell
     }
@@ -62,8 +71,7 @@ extension SpyListViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let spy = presenter.data[indexPath.row]
         
-        let detailPresenter = DetailPresenter(with: spy)
-        let detailViewController = DetailViewController.fromStoryboard(with: detailPresenter)
+        let detailViewController = detailViewControllerMaker(spy)
         
         navigationController?.pushViewController(detailViewController, animated: true)
     }
